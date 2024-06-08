@@ -1,7 +1,8 @@
 "use client"
 
 import React from "react";
-import L from "leaflet";
+// import L from "leaflet";
+import * as L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { MapContainer, Marker, TileLayer } from "react-leaflet";
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
@@ -11,10 +12,15 @@ import markerShadow from "leaflet/dist/images/marker-shadow.png";
 // @ts-ignore
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
-  iconUrl: marketIcon.src,
-  iconRetinaUrl: markerIcon2x.src,
-  shadowUrl: markerShadow.src,
+  iconUrl: marketIcon,
+  iconRetinaUrl: markerIcon2x,
+  shadowUrl: markerShadow,
 });
+// L.Icon.Default.mergeOptions({
+//   iconUrl: marketIcon.src,
+//   iconRetinaUrl: markerIcon2x.src,
+//   shadowUrl: markerShadow.src,
+// });
 
 interface MapProps {
   center?: number[];
