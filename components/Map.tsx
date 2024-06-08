@@ -1,35 +1,29 @@
-"use client"
-
 import React from "react";
-// import L from "leaflet";
-import * as L from "leaflet";
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { MapContainer, Marker, TileLayer } from "react-leaflet";
+
+// Set default icon URLs
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import marketIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
 
-// @ts-ignore
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconUrl: marketIcon,
-  iconRetinaUrl: markerIcon2x,
-  shadowUrl: markerShadow,
+// Set default icon URLs
+L.Marker.prototype.options.icon = L.icon({
+  iconUrl: marketIcon.src as string,
+  iconRetinaUrl: markerIcon2x.src as string,
+  shadowUrl: markerShadow.src as string,
 });
-// L.Icon.Default.mergeOptions({
-//   iconUrl: marketIcon.src,
-//   iconRetinaUrl: markerIcon2x.src,
-//   shadowUrl: markerShadow.src,
-// });
+
 
 interface MapProps {
-  center?: number[];
+  center?: L.LatLngExpression;
 }
 
 const Map: React.FC<MapProps> = ({ center }) => {
   return (
     <MapContainer
-      center={(center as L.LatLngExpression) || [52, -0.09]}
+      center={center || [52, -0.09]}
       zoom={center ? 4 : 2}
       scrollWheelZoom={false}
       className={`h-full rounded-lg`}
@@ -38,7 +32,7 @@ const Map: React.FC<MapProps> = ({ center }) => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {center && <Marker position={center as L.LatLngExpression} />}
+      {center && <Marker position={center} />}
     </MapContainer>
   );
 };

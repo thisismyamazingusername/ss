@@ -28,6 +28,19 @@ const nextConfig = {
       }
     ],
   },
+  webpack: (config, { isServer }) => {
+    // Add your webpack configuration here
+    if (!isServer) {
+      config.externals = {
+        'domutils': true,
+        'cheerio': 'window',
+        'react/addons': true,
+        'react/lib/ExecutionEnvironment': true,
+        'react/lib/ReactContext': true
+      };
+    }
+    return config;
+  }
 };
 
 module.exports = nextConfig;

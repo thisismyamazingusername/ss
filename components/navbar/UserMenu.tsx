@@ -13,6 +13,7 @@ import Modal from "../modals/Modal";
 import AuthModal from "../modals/AuthModal";
 import { menuItems } from "@/utils/constants";
 
+
 interface UserMenuProps {
   user?: User;
 }
