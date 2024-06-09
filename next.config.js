@@ -4,12 +4,6 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "res.cloudinary.com",
-        pathname: "**",
-        port: "",
-      },
-      {
-        protocol: "https",
         hostname: "lh3.googleusercontent.com",
         pathname: "**",
         port: "",
@@ -28,19 +22,6 @@ const nextConfig = {
       }
     ],
   },
-  webpack: (config, { isServer }) => {
-    // Add your webpack configuration here
-    if (!isServer) {
-      config.externals = {
-        'domutils': true,
-        'cheerio': 'window',
-        'react/addons': true,
-        'react/lib/ExecutionEnvironment': true,
-        'react/lib/ReactContext': true
-      };
-    }
-    return config;
-  }
 };
 
 module.exports = nextConfig;

@@ -7,7 +7,6 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { BiDollar } from "react-icons/bi";
 
-
 import Modal from "./Modal";
 import Button from "../Button";
 import SpinnerMini from "../Loader";
