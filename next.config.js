@@ -19,6 +19,12 @@ const nextConfig = {
         hostname: "files.edgestore.dev",
         pathname: "**",
         port: ""
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "**",
+        port: ""
       }
     ],
   },
